@@ -2,31 +2,28 @@ package module2
 
 import "fmt"
 
- 
-
-
-func sumTwo(nums[]int ,target int) []int{
+func sumTwo(nums []int, target int) []int {
 
 	present := make(map[int]int)
 	result := []int{}
 
-	for i,v := range nums{
-		need :=target-v
+	for i, v := range nums {
+		need := target - v
 
-	if idx,ok := present[need];ok {
-		 result = append(result,idx,i)
-		 return  result
+		if idx, ok := present[need]; ok {
+			result = append(result, idx, i)
+			return result
+		}
+		present[v] = i
 	}
-  present[v]=i
-}
-return result
+	return result
 }
 
-func findsumtarget()  {
-	nums := []int{1,2,3,4,6}
+func findsumtarget() {
+	nums := []int{1, 2, 3, 4, 6}
 	tar := 9
-	result := sumTwo(nums,tar)
-    fmt.Println(result)
+	result := sumTwo(nums, tar)
+	fmt.Println(result)
 
 }
 
