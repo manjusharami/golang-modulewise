@@ -6,5 +6,6 @@ func Start() {
 	fmt.Println("Inside module 2 ")
 
 	// setOperations()
-	mapOperation()
+	// mapOperation()
+	findsumtarget()
 }
