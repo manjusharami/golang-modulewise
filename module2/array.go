@@ -1,9 +1,10 @@
 package module2
 
-func array(){
+func array() {
 	//distinctArray()
-	// duplicateArray() 
+	// duplicateArray()
 	//repeatingElement()
 	// uniqueElemt()
-	commonElement()
+	// commonElement()
+	removeDuplicate()
 }
