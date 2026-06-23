@@ -3,5 +3,6 @@ package module2
 func array(){
 	//distinctArray()
 	// duplicateArray() 
-	repeatingElement()
+	//repeatingElement()
+	uniqueElemt()
 }

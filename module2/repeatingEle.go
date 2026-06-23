@@ -1,3 +1,4 @@
+//Find the first repeating element in an array.Find the first repeating element in an array.
 package module2
 
 import "fmt"
