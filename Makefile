@@ -6,7 +6,7 @@ build:
 	go build -o $(APP_NAME) .
 
 run:
-	go run .
+	clear && go run .
 
 clean:
 	rm -f $(APP_NAME)

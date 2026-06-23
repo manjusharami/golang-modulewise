@@ -8,5 +8,5 @@ func array() {
 	// commonElement()
 	//removeDuplicate()
 	// checkGiven()
-	exactlyOnce()//Find all elements that appear exactly once in an array.
+	//exactlyOnce() //Find all elements that appear exactly once in an array.
 }
