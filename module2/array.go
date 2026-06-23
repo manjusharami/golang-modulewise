@@ -6,5 +6,6 @@ func array() {
 	//repeatingElement()
 	// uniqueElemt()
 	// commonElement()
-	removeDuplicate()
+	//removeDuplicate()
+	checkGiven()
 }
