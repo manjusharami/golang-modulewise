@@ -7,5 +7,6 @@ func Start() {
 
 	// setOperations()
 	// mapOperation()
-	findsumtarget()
+	// findsumtarget()
+	array()
 }
