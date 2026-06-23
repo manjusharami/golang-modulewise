@@ -4,5 +4,6 @@ func array(){
 	//distinctArray()
 	// duplicateArray() 
 	//repeatingElement()
-	uniqueElemt()
+	// uniqueElemt()
+	commonElement()
 }
