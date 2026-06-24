@@ -1,4 +1,4 @@
-// Remove duplicate elements from an array and print unique values.
+// Remove duplicate elements from an array and print unique values using hashMAP.
 package module2
 
 import "fmt"
