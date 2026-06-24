@@ -8,7 +8,8 @@ func Start() {
 	// setOperations()
 	// mapOperation()
 	// findsumtarget()
-	array()
+	// array()
 	// copyFun()
+	allSet()
 
 }
