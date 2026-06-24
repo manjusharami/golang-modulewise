@@ -7,6 +7,8 @@ import "fmt"
 func unionofTwoArrays() {
 	array1 := []int{2, 4, 2, 2, 4, 2, 100, 300}
 	array2 := []int{2, 3, 4, 5, 6, 7, 8}
+ 
+	 
 	set := make(map[int]struct{})
 	result := []int{}
 
@@ -15,7 +17,6 @@ func unionofTwoArrays() {
 			set[v] = struct{}{}
 			result =append(result, v)
 		}
-
 	}
 	for _, v := range array2 {
 		 if _,exits := set[v];!exits{
@@ -24,5 +25,7 @@ func unionofTwoArrays() {
 		 }
 	}
 	fmt.Println(result)
+ 
+	 
 
 }
