@@ -1,6 +1,6 @@
 package module2
 
-func allSet(){
+func allSet() {
 	// removeDuplicatesSet()
 	// missingNumber()
 	//intersectionArray()
@@ -9,6 +9,6 @@ func allSet(){
 	//longestSeqSet()
 	//distincEle()
 	//commonArray()
-	pairSum()
- 
+	//pairSum()
+	zeroSum()
 }
