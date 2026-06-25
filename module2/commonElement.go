@@ -21,7 +21,7 @@ func commonElement() {
 	if len(commonEle) >= 0 {
 		fmt.Println("The Array  have common element", commonEle)
 	} else {
-		fmt.Println("Array doest not have common elements", commonEle)
+		fmt.Println("Array does not have common elements", commonEle)
 	}
 
 }

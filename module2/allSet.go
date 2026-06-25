@@ -8,5 +8,6 @@ func allSet(){
 	// happyNumber()
 	//longestSeqSet()
 	//distincEle()
+	commonArray()
  
 }
