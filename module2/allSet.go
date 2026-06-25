@@ -6,5 +6,7 @@ func allSet(){
 	//intersectionArray()
 	// unionofTwoArrays()
 	// happyNumber()
-	longestSeqSet()
+	//longestSeqSet()
+	//distincEle()
+ 
 }
