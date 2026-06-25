@@ -5,5 +5,6 @@ func allSet(){
 	// missingNumber()
 	//intersectionArray()
 	// unionofTwoArrays()
-	happyNumber()
+	// happyNumber()
+	longestSeqSet()
 }
