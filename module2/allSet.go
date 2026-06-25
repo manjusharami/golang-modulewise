@@ -4,5 +4,6 @@ func allSet(){
 	// removeDuplicatesSet()
 	// missingNumber()
 	//intersectionArray()
-	unionofTwoArrays()
+	// unionofTwoArrays()
+	happyNumber()
 }
