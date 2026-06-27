@@ -1,6 +1,6 @@
-//Interview Question
-//https://medium.com/@praffulmishra/struct-alignment-and-padding-in-go-a-comprehensive-guide-ae928d5a9d5e
-package module3
+// Interview Question
+// https://medium.com/@praffulmishra/struct-alignment-and-padding-in-go-a-comprehensive-guide-ae928d5a9d5e
+package pratice
 
 import (
 	"fmt"
@@ -23,5 +23,3 @@ func structMem() {
 	obj2 := B{}
 	fmt.Println(Sizeof(obj1), Sizeof(obj2))
 }
-
- 

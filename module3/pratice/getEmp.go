@@ -1,19 +1,18 @@
-package module3
+package pratice
 
 import (
 	"fmt"
-	"manju/module3/model"
 	"sort"
 )
 
-func sortEmpByname(emp []model.Employee) []model.Employee {
+func sortEmpByname(emp []Employee) []Employee {
 	sort.Slice(emp, func(i, j int) bool {
 		return emp[i].Ename < emp[j].Ename
 	})
 	return emp
 }
 
-func sortEmpByNumber(emp []model.Employee) []model.Employee {
+func sortEmpByNumber(emp []Employee) []Employee {
 
 	sort.Slice(emp, func(i, j int) bool {
 		return emp[i].EId < emp[j].EId
@@ -21,9 +20,9 @@ func sortEmpByNumber(emp []model.Employee) []model.Employee {
 	return emp
 }
 
-func uniqueName(emp []model.Employee) []model.Employee {
+func uniqueName(emp []Employee) []Employee {
 	hashMap := make(map[string]bool)
-	unique := []model.Employee{}
+	unique := []Employee{}
 	for _, v := range emp {
 		if _, ok := hashMap[v.Ename]; !ok {
 			hashMap[v.Ename] = true
@@ -33,15 +32,15 @@ func uniqueName(emp []model.Employee) []model.Employee {
 	return unique
 }
 
-func getEmp() {
-	emp := []model.Employee{
+func GetEmp() {
+	emp := []Employee{
 		{Ename: "manju", EId: 2},
 		{Ename: "mmmanju", EId: 3},
 		{Ename: "chinnu", EId: 4},
 		{Ename: "sweety", EId: 2},
 		{Ename: "amu", EId: 1},
-			{Ename: "amu", EId: 1},
-				{Ename: "amu", EId: 1},
+		{Ename: "amu", EId: 1},
+		{Ename: "amu", EId: 1},
 	}
 
 	for _, v := range emp {
@@ -55,7 +54,7 @@ func getEmp() {
 	fmt.Println("_____________________")
 	fmt.Println("remove duplicate number")
 
-	removeDup :=uniqueName(emp)
-	fmt.Println("remove the duplicate",removeDup)
+	removeDup := uniqueName(emp)
+	fmt.Println("remove the duplicate", removeDup)
 
 }
