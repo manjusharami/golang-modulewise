@@ -47,3 +47,7 @@ func StructurePratice() {
 	// Find lenght of Student Name
 	fmt.Println(s1.GetLengthOfStudentName())
 }
+// Create two students with there own name and roll number and 
+// Write a method which will find out student with higher roll number and
+// Another menthod which will find out student with larger name 
+
