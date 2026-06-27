@@ -8,6 +8,8 @@ import (
 func Start() {
 	fmt.Println("I am module 3")
 	//pratice.GetEmp()
-	StructureBasic()
-	StructurePratice()
+	//StructureBasic()
+	//StructurePratice()
+	createStudent()
+
 }
