@@ -3,20 +3,20 @@ package module3
 import "fmt"
 
 type Student struct {
-	Name string
-	Roll int
+	name string
+	roll int
 }
 
 // Constructor in GoLang Syntax -  This is done by convention over configuration approach
-func NewStudent(str string, r int) Student { return Student{Name: str, Roll: r} }
+func NewStudent(str string, r int) Student { return Student{name: str, roll: r} }
 
-func (s *Student) GetName() string { return s.Name }
+func (s *Student) GetName() string { return s.name }
 
-func (s *Student) GetRoll() int { return s.Roll }
+func (s *Student) GetRoll() int { return s.roll }
 
-func (s *Student) SetName(str string) { s.Name = str }
+func (s *Student) SetName(str string) { s.name = str }
 
-func (s *Student) SetRoll(r int) { s.Roll = r }
+func (s *Student) SetRoll(r int) { s.roll = r }
 
 // toString() method simulation like java or other object oriented languages
 func (s *Student) ToString() string {
@@ -47,7 +47,7 @@ func StructurePratice() {
 	// Find lenght of Student Name
 	fmt.Println(s1.GetLengthOfStudentName())
 }
-// Create two students with there own name and roll number and 
-// Write a method which will find out student with higher roll number and
-// Another menthod which will find out student with larger name 
 
+// Create two students with there own name and roll number and
+// Write a method which will find out student with higher roll number and
+// Another menthod which will find out student with larger name
