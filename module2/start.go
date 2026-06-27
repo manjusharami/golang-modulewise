@@ -10,6 +10,7 @@ func Start() {
 	// findsumtarget()
 	// array()
 	// copyFun()
-	allSet()
+	//allSet()
+	//slice()
 
 }

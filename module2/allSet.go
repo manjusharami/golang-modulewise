@@ -10,5 +10,7 @@ func allSet() {
 	//distincEle()
 	//commonArray()
 	//pairSum()
-	zeroSum()
+	// zeroSum()
+   distinctElements()
+
 }
