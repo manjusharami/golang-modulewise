@@ -16,24 +16,31 @@ type Bank interface {
 }
 
 type Hsbc struct {
-	balance float64
+	blance float64
+}
+ 
+func NewHsbc(inintailBalance float64) Bank{
+	return &Hsbc{blance: inintailBalance}
 }
 
 func (b *Hsbc) Deposit(amount float64) {
-	b.balance += amount
+	b.blance += amount
 }
+
 func (b *Hsbc) Withdraw(amount float64) {
-	b.balance -= amount
+	b.blance -= amount
 }
 func (b *Hsbc) Balance() float64 {
-	return b.balance
+	return b.blance
 }
 
 func CallInterface() {
+	 // var b Bank = &Hsbc{}
 
-	var bank Bank = &Hsbc{}
-	bank.Deposit(1000)
-	bank.Withdraw((400))
-	fmt.Println("The balance is",bank.Balance())
-
+	 var b Bank =NewHsnce(900)
+ 
+	b.Deposit(100)
+	b.Withdraw(50)
+	b.Balance()
+	fmt.Println(b.Balance())
 }
