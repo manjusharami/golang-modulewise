@@ -37,7 +37,7 @@ func (b *Hsbc) Balance() float64 {
 func CallInterface() {
 	 // var b Bank = &Hsbc{}
 
-	 var b Bank =NewHsnce(900)
+	 var b Bank =NewHsbc(900)
  
 	b.Deposit(100)
 	b.Withdraw(50)
