@@ -10,11 +10,15 @@ func Start() {
 	//pratice.GetEmp()
 	//StructureBasic()
 	//StructurePratice()
-	//  createStudent()
+	// createStudent()
 	// pratice.FindArray()
 	// pratice.Solution()
 	//pratice.SolutionMedium()
 	//pratice.SortedArray()
-	CallInterface()
+	//CallInterface()
+	//AnimalInter()
+
+	// Module 3 - ACTE
+	
 
 }

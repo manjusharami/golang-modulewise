@@ -18,8 +18,8 @@ type Bank interface {
 type Hsbc struct {
 	blance float64
 }
- 
-func NewHsbc(inintailBalance float64) Bank{
+
+func NewHsbc(inintailBalance float64) *Hsbc {
 	return &Hsbc{blance: inintailBalance}
 }
 
@@ -34,13 +34,18 @@ func (b *Hsbc) Balance() float64 {
 	return b.blance
 }
 
-func CallInterface() {
-	 // var b Bank = &Hsbc{}
+func (b *Hsbc) papa() string {
+	return fmt.Sprintf("Hsbc: %.2f", b.blance)
+}
 
-	 var b Bank =NewHsbc(900)
- 
+func CallInterface() {
+	// var b Bank = &Hsbc{}
+
+	b := NewHsbc(900)
+
 	b.Deposit(100)
 	b.Withdraw(50)
 	b.Balance()
-	fmt.Println(b.Balance())
+	fmt.Println(b) // This will call the String() method
+	fmt.Println(b.papa())
 }
