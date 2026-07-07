@@ -1,3 +1,38 @@
 {
-    "git.ignoreLimitWarning": true
+
+  "[go]": {
+
+    "editor.quickSuggestions": {
+
+      "other": false,
+
+      "comments": false,
+
+      "strings": false
+
+    },
+
+    "editor.suggestOnTriggerCharacters": false,
+
+    "editor.acceptSuggestionOnEnter": "off",
+
+    "editor.wordBasedSuggestions": "off",
+
+    "editor.parameterHints.enabled": false,
+
+    "editor.inlineSuggest.enabled": false
+
+  },
+
+  "gopls": {
+
+    "ui.completion.usePlaceholders": false
+
+  },
+
+  "go.autocompleteUnimportedPackages": false,
+
+  "editor.snippetSuggestions": "none"
+
 }
+ 

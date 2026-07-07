@@ -15,10 +15,11 @@ func Start() {
 	// pratice.Solution()
 	//pratice.SolutionMedium()
 	//pratice.SortedArray()
-	//CallInterface()
+	// CallInterface()
 	//AnimalInter()
 
 	// Module 3 - ACTE
-	
+	// StructsInterface()
+	CompleteModule3()
 
 }
