@@ -1,13 +1,16 @@
 package module4
 
-import "fmt"
+import (
+	"fmt"
+	"time"
+)
 
 type MyError struct {
 	Err string
 }
-
+ // custom error handlers 
 func (e MyError) LogError() {
-	fmt.Println(e.Err)
+	fmt.Println("Error Happened at" + time.Now().String() + "with the error" + e.Err)
 }
 
 func Start() {
