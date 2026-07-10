@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"math"
 	"os"
+	"time"
 )
 
 type MyError struct {
@@ -44,6 +45,10 @@ func Start() {
 	appendFile()
 
 	removeFromFile()
+
+	createDirectory()
+
+	deleteDirectory()
 }
 
 // sentinel error are  reusable predefined errrors that colors can compare
@@ -97,4 +102,21 @@ func appendFile() {
 
 func removeFromFile() {
 	// remove the last line from the text file and call the method
+}
+
+func createDirectory() {
+	err := os.Mkdir("myFolder", 0755)
+	if err != nil {
+		panic("can not able create folder")
+	}
+	fmt.Println("folder created")
+}
+
+func deleteDirectory() {
+	time.Sleep(5 * time.Second)
+	err := os.Remove("myFolder")
+	if err != nil {
+		panic("Can't able to remove the file")
+	}
+	fmt.Println("File removed Successfully")
 }
