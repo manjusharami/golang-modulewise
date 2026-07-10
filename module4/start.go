@@ -3,6 +3,7 @@ package module4
 import (
 	"errors"
 	"fmt"
+	"log"
 	"math"
 	"os"
 	"time"
@@ -49,6 +50,8 @@ func Start() {
 	createDirectory()
 
 	deleteDirectory()
+
+	loggingTechniques()
 }
 
 // sentinel error are  reusable predefined errrors that colors can compare
@@ -119,4 +122,18 @@ func deleteDirectory() {
 		panic("Can't able to remove the file")
 	}
 	fmt.Println("File removed Successfully")
+}
+
+func loggingTechniques() {
+	file, err := os.OpenFile("my-log.log", os.O_CREATE|os.O_WRONLY|os.O_APPEND, 0666)
+	
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	defer file.Close()
+
+	log.SetOutput(file)
+
+	log.Println("start of the file")
 }
