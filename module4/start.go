@@ -4,6 +4,7 @@ import (
 	"errors"
 	"fmt"
 	"math"
+	"os"
 )
 
 type MyError struct {
@@ -34,7 +35,15 @@ func Start() {
 
 	//sentinelError()
 
-	panicMethod()
+	//panicMethod()
+
+	readingFile()
+
+	writeFile()
+
+	appendFile()
+
+	removeFromFile()
 }
 
 // sentinel error are  reusable predefined errrors that colors can compare
@@ -58,4 +67,34 @@ func panicMethod() {
 		panic("Negative nummber is not allowed")
 	}
 	fmt.Println(math.Sqrt(a))
+}
+
+func readingFile() {
+	data, err := os.ReadFile("data/manju.txt")
+	if err != nil {
+		panic(err)
+	}
+	fmt.Println(string(data))
+}
+
+func writeFile() {
+	inputData := []byte("i am fifa world cup messi")
+	err := os.WriteFile("data/messi.txt", inputData, 0644)
+	if err != nil {
+		panic("could not written into the file")
+	}
+	fmt.Println("File Created Succesful")
+}
+
+func appendFile() {
+	file, err := os.OpenFile("data/appendExample.txt", os.O_APPEND|os.O_WRONLY, 0644)
+	if err != nil {
+		panic("Cant able to open the file")
+	}
+	defer file.Close()
+	file.WriteString("\nthis new content appended")
+}
+
+func removeFromFile() {
+	// remove the last line from the text file and call the method
 }
