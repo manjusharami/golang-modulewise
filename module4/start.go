@@ -9,6 +9,8 @@ import (
 	"reflect"
 	"time"
 
+	"encoding/json"
+
 	yaml "sigs.k8s.io/yaml/goyaml.v2"
 )
 
@@ -56,7 +58,9 @@ func Start() {
 
 	// loggingTechniques()
 
-	configFile()
+	// configFileYaml()
+
+	configFileJson()
 }
 
 // sentinel error are  reusable predefined errrors that colors can compare
@@ -148,7 +152,7 @@ type MyYAMLCofig struct {
 	Data2 string `yaml:"myString"`
 }
 
-func configFile() {
+func configFileYaml() {
 	data, err := os.ReadFile("data/config.yaml")
 	if err != nil {
 		fmt.Println("error")
@@ -169,3 +173,26 @@ func configFile() {
 
 // byte data we need to unmarshall so that we can do extra
 // operations apart from just printing the whole file
+
+type myJSONCofig struct {
+	Name string `json:"Name"`
+	Age  int    `json:"Age"`
+}
+
+func configFileJson() {
+	data, err := os.ReadFile("data/config.json")
+	if err != nil {
+		fmt.Println("error")
+	}
+
+	var config myJSONCofig
+	json.Unmarshal(data, &config)
+	fmt.Println(config.Name)
+	fmt.Println(config.Age)
+
+	marshalledDataJson, _ := json.Marshal(config)
+	fmt.Println(marshalledDataJson)
+
+	fmt.Println(reflect.TypeOf(config))
+	fmt.Println(reflect.TypeOf(marshalledDataJson))
+}
