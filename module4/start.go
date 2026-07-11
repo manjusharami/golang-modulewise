@@ -7,6 +7,7 @@ import (
 	"math"
 	"os"
 	"reflect"
+	"strings"
 	"time"
 
 	"encoding/json"
@@ -50,7 +51,7 @@ func Start() {
 
 	// appendFile()
 
-	// removeFromFile()
+	removeFromFile()
 
 	// createDirectory()
 
@@ -60,7 +61,7 @@ func Start() {
 
 	// configFileYaml()
 
-	configFileJson()
+	//configFileJson()
 }
 
 // sentinel error are  reusable predefined errrors that colors can compare
@@ -113,7 +114,18 @@ func appendFile() {
 }
 
 func removeFromFile() {
-	// remove the last line from the text file and call the method
+	file, _ := os.ReadFile("data/coding.txt")
+	fileLength := len(file) - 1
+	fmt.Println(fileLength)
+
+	lines := strings.Split(string(file), "\n")
+	fmt.Println(lines)
+
+	lines = lines[:len(lines)-1]
+	fmt.Println(lines)
+
+	os.WriteFile("data/coding.txt", []byte(strings.Join(lines, "\n")), 0644)
+
 }
 
 func createDirectory() {
