@@ -6,6 +6,7 @@ import (
 	"log"
 	"math"
 	"os"
+	"reflect"
 	"time"
 
 	yaml "sigs.k8s.io/yaml/goyaml.v2"
@@ -158,6 +159,12 @@ func configFile() {
 
 	fmt.Println(config.Data1)
 	fmt.Println(config.Data2)
+
+	marshalledData, _ := yaml.Marshal(config)
+	fmt.Println(marshalledData)
+
+	fmt.Println(reflect.TypeOf(config))
+	fmt.Println(reflect.TypeOf(marshalledData))
 }
 
 // byte data we need to unmarshall so that we can do extra
