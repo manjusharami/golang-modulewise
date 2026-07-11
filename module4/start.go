@@ -51,7 +51,7 @@ func Start() {
 
 	// appendFile()
 
-	removeFromFile()
+	//removeFromFile()
 
 	// createDirectory()
 
@@ -62,6 +62,8 @@ func Start() {
 	// configFileYaml()
 
 	//configFileJson()
+
+	dynamicJson()
 }
 
 // sentinel error are  reusable predefined errrors that colors can compare
@@ -207,4 +209,24 @@ func configFileJson() {
 
 	fmt.Println(reflect.TypeOf(config))
 	fmt.Println(reflect.TypeOf(marshalledDataJson))
+}
+
+//
+
+func dynamicJson() {
+	data, _ := os.ReadFile("data/ugly.json")
+	var result any
+	json.Unmarshal(data, &result)
+	// fmt.Println(result)
+	myMap := result.(map[string]any)
+	fmt.Println(myMap["salary"])
+
+	addressData, _ := myMap["address"].(map[string]any)
+
+	for key, value := range addressData {
+		if key == "city" {
+			fmt.Println(value)
+			break
+		}
+	}
 }
