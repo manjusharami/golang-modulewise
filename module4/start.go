@@ -7,6 +7,8 @@ import (
 	"math"
 	"os"
 	"time"
+
+	yaml "sigs.k8s.io/yaml/goyaml.v2"
 )
 
 type MyError struct {
@@ -20,38 +22,40 @@ func (e MyError) LogError() error {
 }
 
 func Start() {
-	fmt.Println("I am in  module 4")
+	// fmt.Println("I am in  module 4")
 
-	a, b := 10, 0
-	var err MyError
+	// a, b := 10, 0
+	// var err MyError
 
-	if b == 0 {
-		err = MyError{Err: "Divide by zero is not allowed"}
-	} else if b > 1000 {
-		err = MyError{Err: "Larger b not allowed"}
-	} else {
-		fmt.Println(a / b)
-	}
+	// if b == 0 {
+	// 	err = MyError{Err: "Divide by zero is not allowed"}
+	// } else if b > 1000 {
+	// 	err = MyError{Err: "Larger b not allowed"}
+	// } else {
+	// 	fmt.Println(a / b)
+	// }
 
-	fmt.Println(err.LogError())
+	// fmt.Println(err.LogError())
 
 	//sentinelError()
 
 	//panicMethod()
 
-	readingFile()
+	// readingFile()
 
-	writeFile()
+	// writeFile()
 
-	appendFile()
+	// appendFile()
 
-	removeFromFile()
+	// removeFromFile()
 
-	createDirectory()
+	// createDirectory()
 
-	deleteDirectory()
+	// deleteDirectory()
 
-	loggingTechniques()
+	// loggingTechniques()
+
+	configFile()
 }
 
 // sentinel error are  reusable predefined errrors that colors can compare
@@ -126,7 +130,7 @@ func deleteDirectory() {
 
 func loggingTechniques() {
 	file, err := os.OpenFile("my-log.log", os.O_CREATE|os.O_WRONLY|os.O_APPEND, 0666)
-	
+
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -137,3 +141,24 @@ func loggingTechniques() {
 
 	log.Println("start of the file")
 }
+
+type MyYAMLCofig struct {
+	Data1 int    `yaml:"myNumber"`
+	Data2 string `yaml:"myString"`
+}
+
+func configFile() {
+	data, err := os.ReadFile("data/config.yaml")
+	if err != nil {
+		fmt.Println("error")
+	}
+
+	var config MyYAMLCofig
+	yaml.Unmarshal(data, &config)
+
+	fmt.Println(config.Data1)
+	fmt.Println(config.Data2)
+}
+
+// byte data we need to unmarshall so that we can do extra
+// operations apart from just printing the whole file
