@@ -9,8 +9,12 @@ func exampleOne() {
 	fmt.Println("Simple hello from examle one")
 }
 
+// func exampleTwo() {
+// 	fmt.Println("Simple hello from example two")
+// }
+
 func Start() {
-	fmt.Println("welcome to module5")
+	go fmt.Println("welcome to module5")
 
 	go exampleOne()
 	time.Sleep(1 * time.Second)
