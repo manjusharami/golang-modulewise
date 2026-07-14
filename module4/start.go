@@ -64,6 +64,7 @@ func Start() {
 	//configFileJson()
 
 	dynamicJson()
+	TestStrcut()
 }
 
 // sentinel error are  reusable predefined errrors that colors can compare
