@@ -5,14 +5,13 @@ import (
 	"time"
 )
 
-func hello() {
-	fmt.Println("Simple hello ")
+func exampleOne() {
+	fmt.Println("Simple hello from examle one")
 }
 
 func Start() {
 	fmt.Println("welcome to module5")
 
-	go hello()
+	go exampleOne()
 	time.Sleep(1 * time.Second)
 }
-
