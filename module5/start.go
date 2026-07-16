@@ -2,7 +2,6 @@ package module5
 
 import (
 	"fmt"
-	"time"
 )
 
 func exampleOne() {
@@ -19,11 +18,14 @@ func exampleTwo() {
 }
 
 func Start() {
-	go fmt.Println("welcome to module5")
+	// go fmt.Println("welcome to module5")
 
-	go exampleOne()
+	// go exampleOne()
 
-	exampleTwo()
-	
-	time.Sleep(1 * time.Second)
+	// exampleTwo()
+
+	// time.Sleep(1 * time.Second)
+
+	//two()
+	SimpleGoRoutine()
 }
