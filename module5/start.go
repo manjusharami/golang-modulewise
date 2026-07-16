@@ -27,5 +27,8 @@ func Start() {
 	// time.Sleep(1 * time.Second)
 
 	//two()
-	SimpleGoRoutine()
+	
+	//SimpleGoRoutine()
+
+	GoChannels()
 }
