@@ -10,25 +10,39 @@ func two() {
 
 	// If we want to print 1 to N using go routine
 	// make sure it gets printed in order
-	go printOneToN(5)
+    printOneToN(5)
 
 	time.Sleep(1 * time.Second)
 }
 
+// func printOneToN(n int) {
+//   ch := make(chan int,n)
+//   ch <- 1
+//   for{
+// 	val := <-ch
+// 	fmt.Println(val)
+// 	next := val + 1
+// 	if next > n {
+// 		close(ch)
+// 		break
+// 	}
+// 	ch <-next
+//   }
+// }
+
 func printOneToN(n int) {
+	ch := make(chan int, n)
 
-	ch := make(chan int, 1)
-	ch <- 1
-	for {
-		val := <-ch
-		fmt.Println(val)
-		if val >=n {
-			close(ch)
-			break
+	go func() {
+		for i := 0; i <= n; i++ {
+			ch <- i
 		}
-		ch <- val + 1
-	}
+		close(ch)
+	}()
 
+	for v := range ch {
+		fmt.Println(v)
+	}
 }
 
 // [1]
