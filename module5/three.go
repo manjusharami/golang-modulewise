@@ -7,30 +7,32 @@ import (
 	"sync"
 )
 
+ 
+
+func WaitGroupTest() {
+	 var wg sync.WaitGroup
+	 ch := make(chan int,10)
+// write the channel
+	 for i :=0 ;i < 10;i++{
+		ch<-i
+
+	 }
+
+	//close
+	close(ch)
+	wg.Add(1)
+	go read(ch,&wg)
+	 
+	wg.Wait()
+
+}
+ 
 func read(ch chan int, wg *sync.WaitGroup) {
 	//defer the decrement operation of the waitgroup
 	defer wg.Done()
 	for data := range ch {
 		fmt.Println(data)
 	}
-}
-
-func WaitGroupTest() {
-	var wg sync.WaitGroup
-
-	ch := make(chan int, 10)
-	// send the data to the channel
-	for i := 0; i < 10; i++ {
-		ch <- i
-	}
-	//close the buffered channel
-	close(ch)
-	//increment wait group counter
-	wg.Add(1)
-	//call the read menthod using gooutine
-	go read(ch, &wg)
-	//wait for counter to be decrement
-	wg.Wait()
 }
 
 //Create a buffered channel of size 10 send data from main routine and read from another routine

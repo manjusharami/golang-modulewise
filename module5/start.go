@@ -27,8 +27,9 @@ func Start() {
 	// time.Sleep(1 * time.Second)
 
 	// two()
-	WaitGroupTest()
+	// WaitGroupTest()
 
+ 
 	//SimpleGoRoutine()
 
 	// GoChannels()
