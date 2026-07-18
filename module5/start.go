@@ -29,9 +29,9 @@ func Start() {
 	// two()
 	// WaitGroupTest()
 
- 
 	//SimpleGoRoutine()
 
 	// GoChannels()
-	SelectStatement()
+	// SelectStatement()
+	Seven()
 }
