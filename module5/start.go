@@ -33,4 +33,5 @@ func Start() {
 	//SimpleGoRoutine()
 
 	// GoChannels()
+	SelectStatement()
 }
