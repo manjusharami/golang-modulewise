@@ -36,5 +36,6 @@ func Start() {
 	// Seven()
 	// Eight()
 	// WorkerPool()
-	AtomicNumber()
+	// AtomicNumber()
+	contextUsage()
 }
