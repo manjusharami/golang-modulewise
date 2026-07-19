@@ -35,5 +35,6 @@ func Start() {
 	// SelectStatement()
 	// Seven()
 	// Eight()
-	WorkerPool()
+	// WorkerPool()
+	AtomicNumber()
 }
