@@ -8,7 +8,11 @@ import (
 
 func contextUsage() {
 	fmt.Println("Context Usage")
+	//contextWithTimeout()
+	contextWithCancel()
+}
 
+func contextWithTimeout() {
 	ctxTimeout := 5 * time.Second
 	taskTimeout := 2 * time.Second
 
@@ -21,4 +25,28 @@ func contextUsage() {
 	case <-ctx.Done():
 		fmt.Println("Context done")
 	}
+}
+
+func contextWithCancel() {
+	ctx, cancel := context.WithCancel(context.Background())
+	ctxTimeout := 5 * time.Second
+	taskTimeout := 16 * time.Second
+	mainWaitTimeout := 2 * time.Second
+	go func() {
+		for {
+			select {
+			case <-ctx.Done():
+				fmt.Println("End the program")
+				return
+			default:
+				fmt.Println("In Progress")
+				time.Sleep(ctxTimeout)
+			}
+		}
+	}()
+
+	time.Sleep(taskTimeout)
+	cancel()
+
+	time.Sleep(mainWaitTimeout)
 }
