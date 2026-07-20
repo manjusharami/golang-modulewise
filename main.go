@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"manju/module5"
+	"manju/module6"
 )
 
 func main() {
@@ -11,5 +11,6 @@ func main() {
 	// module2.Start()
 	// module3.Start()
 	// module4.Start()
-	module5.Start()
+	//module5.Start()
+	module6.Start()
 }
