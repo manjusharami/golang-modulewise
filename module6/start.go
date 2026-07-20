@@ -411,57 +411,21 @@ func Start() {
 		mux.NewRouter()
 
 	// Public route
-	router.HandleFunc(
-		"/login",
-		loginHandler,
-	).Methods("POST")
+	router.HandleFunc("/login", loginHandler).Methods("POST")
 
 	// Protected routes
 
-	router.HandleFunc(
-		"/students",
-		logging(
-			auth(getStudents),
-		),
-	).Methods("GET")
+	router.HandleFunc("/students", logging(auth(getStudents))).Methods("GET")
 
-	router.HandleFunc(
-		"/students/{id}",
-		logging(
-			auth(getStudent),
-		),
-	).Methods("GET")
+	router.HandleFunc("/students/{id}", logging(auth(getStudent))).Methods("GET")
 
-	router.HandleFunc(
-		"/students",
-		logging(
-			auth(createStudent),
-		),
-	).Methods("POST")
+	router.HandleFunc("/students", logging(auth(createStudent))).Methods("POST")
 
-	router.HandleFunc(
-		"/students/{id}",
-		logging(
-			auth(updateStudent),
-		),
-	).Methods("PUT")
+	router.HandleFunc("/students/{id}", logging(auth(updateStudent))).Methods("PUT")
 
-	router.HandleFunc(
-		"/students/{id}",
-		logging(
-			auth(deleteStudent),
-		),
-	).Methods("DELETE")
+	router.HandleFunc("/students/{id}", logging(auth(deleteStudent))).Methods("DELETE")
 
-	fmt.Println(
-		"Server running on :8080",
-	)
+	fmt.Println("Server running on :8080")
 
-	log.Fatal(
-		http.ListenAndServe(
-			":8080",
-			router,
-		),
-	)
-
+	log.Fatal(http.ListenAndServe(":8080", router))
 }
