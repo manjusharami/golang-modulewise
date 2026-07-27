@@ -37,5 +37,6 @@ func Start() {
 	// Eight()
 	// WorkerPool()
 	// AtomicNumber()
+	GoRoutinetest1()
 	contextUsage()
 }
