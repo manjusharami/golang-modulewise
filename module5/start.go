@@ -41,5 +41,6 @@ func Start() {
 	// GoRoutine2()
 	// contextUsage()
 	// GoroutineMutex()
-	Gochannel()
+	// Gochannel()
+	Gochan2()
 }
