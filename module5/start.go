@@ -37,6 +37,9 @@ func Start() {
 	// Eight()
 	// WorkerPool()
 	// AtomicNumber()
-	GoRoutinetest1()
-	contextUsage()
+	// GoRoutinetest1()
+	// GoRoutine2()
+	// contextUsage()
+	// GoroutineMutex()
+	Gochannel()
 }
