@@ -42,5 +42,6 @@ func Start() {
 	// contextUsage()
 	// GoroutineMutex()
 	// Gochannel()
-	Gochan2()
+	// Gochan2()
+	Goroutine10()
 }
