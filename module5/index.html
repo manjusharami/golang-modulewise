@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Go Concurrency - Fresher Level Theory</title>
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      scroll-behavior:smooth;
+    }
+
+    body{
+      font-family:Segoe UI,Tahoma,Geneva,Verdana,sans-serif;
+      background:#f4f7fb;
+      color:#222;
+      line-height:1.7;
+    }
+
+    header{
+      background:linear-gradient(135deg,#00b894,#0984e3);
+      color:white;
+      padding:50px 20px;
+      text-align:center;
+    }
+
+    header h1{
+      font-size:42px;
+      margin-bottom:10px;
+    }
+
+    header p{
+      font-size:18px;
+      opacity:.95;
+    }
+
+    nav{
+      position:sticky;
+      top:0;
+      background:#fff;
+      box-shadow:0 2px 8px rgba(0,0,0,.1);
+      z-index:100;
+    }
+
+    nav ul{
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:center;
+      list-style:none;
+    }
+
+    nav li{
+      margin:8px;
+    }
+
+    nav a{
+      text-decoration:none;
+      color:#0984e3;
+      padding:10px 15px;
+      border-radius:8px;
+      transition:.3s;
+      font-weight:600;
+    }
+
+    nav a:hover{
+      background:#0984e3;
+      color:white;
+    }
+
+    .container{
+      width:90%;
+      max-width:1200px;
+      margin:auto;
+      padding:40px 0;
+    }
+
+    section{
+      background:white;
+      margin-bottom:30px;
+      padding:30px;
+      border-radius:15px;
+      box-shadow:0 5px 15px rgba(0,0,0,.08);
+    }
+
+    h2{
+      color:#0984e3;
+      margin-bottom:15px;
+      border-left:6px solid #00b894;
+      padding-left:12px;
+    }
+
+    h3{
+      margin-top:20px;
+      color:#00b894;
+    }
+
+    p{
+      margin:10px 0;
+    }
+
+    ul{
+      margin-left:25px;
+    }
+
+    table{
+      width:100%;
+      border-collapse:collapse;
+      margin-top:20px;
+    }
+
+    table th,
+    table td{
+      border:1px solid #ddd;
+      padding:12px;
+      text-align:left;
+    }
+
+    table th{
+      background:#0984e3;
+      color:white;
+    }
+
+    pre{
+      background:#1e1e1e;
+      color:#7CFC00;
+      padding:18px;
+      border-radius:10px;
+      overflow:auto;
+      margin-top:15px;
+    }
+
+    .quote{
+      background:#e8f8ff;
+      border-left:5px solid #0984e3;
+      padding:15px;
+      margin-top:15px;
+      font-style:italic;
+    }
+
+    .card{
+      background:#f9fcff;
+      border-left:5px solid #00b894;
+      padding:15px;
+      margin-top:15px;
+      border-radius:10px;
+    }
+
+    footer{
+      background:#222;
+      color:white;
+      text-align:center;
+      padding:30px;
+      margin-top:40px;
+    }
+
+    .summary li{
+      margin:10px 0;
+      font-weight:bold;
+    }
+
+    @media(max-width:768px){
+
+      header h1{
+        font-size:30px;
+      }
+
+      nav ul{
+        flex-direction:column;
+        align-items:center;
+      }
+
+      section{
+        padding:20px;
+      }
+
+    }
+
+  </style>
+</head>
+
+<body>
+
+<header>
+
+<h1>Go Concurrency</h1>
+
+<p>Fresher Level Complete Theory Guide</p>
+
+</header>
+
+<nav>
+
+<ul>
+
+<li><a href="#intro">Introduction</a></li>
+<li><a href="#concurrency">Concurrency</a></li>
+<li><a href="#parallelism">Parallelism</a></li>
+<li><a href="#goroutine">Goroutines</a></li>
+<li><a href="#scheduler">Scheduler</a></li>
+<li><a href="#channels">Channels</a></li>
+<li><a href="#blocking">Blocking</a></li>
+<li><a href="#buffer">Buffered Channels</a></li>
+<li><a href="#sync">Synchronization</a></li>
+<li><a href="#race">Race Condition</a></li>
+<li><a href="#mutex">Mutex</a></li>
+<li><a href="#deadlock">Deadlock</a></li>
+<li><a href="#patterns">Patterns</a></li>
+<li><a href="#summary">Summary</a></li>
+
+</ul>
+
+</nav>
+
+<div class="container">
+
+<section id="intro">
+
+<h2>Introduction</h2>
+
+<p>
+
+Concurrency is one of the biggest strengths of Go (GoLang). It allows a program to handle multiple tasks efficiently while keeping the code simple and readable.
+
+</p>
+
+</section>
+
+<section id="concurrency">
+
+<h2>1. What is Concurrency?</h2>
+
+<p>
+
+Concurrency means handling multiple tasks during the same period of time.
+
+</p>
+
+<div class="card">
+
+<b>Example:</b>
+
+<ul>
+
+<li>Boiling Rice</li>
+<li>Making Tea</li>
+<li>Frying Vegetables</li>
+
+</ul>
+
+<p>
+
+While one task waits, you continue working on another task.
+
+</p>
+
+</div>
+
+</section>
+
+<section id="parallelism">
+
+<h2>2. Concurrency vs Parallelism</h2>
+
+<table>
+
+<tr>
+
+<th>Concurrency</th>
+
+<th>Parallelism</th>
+
+</tr>
+
+<tr>
+
+<td>Managing many tasks.</td>
+
+<td>Executing many tasks simultaneously.</td>
+
+</tr>
+
+<tr>
+
+<td>Works even on one CPU core.</td>
+
+<td>Needs multiple CPU cores.</td>
+
+</tr>
+
+<tr>
+
+<td>Focuses on task management.</td>
+
+<td>Focuses on simultaneous execution.</td>
+
+</tr>
+
+</table>
+
+</section>
+
+<section id="goroutine">
+
+<h2>3. What is a Goroutine?</h2>
+
+<p>
+
+A Goroutine is a lightweight thread managed by the Go Runtime.
+
+</p>
+
+<ul>
+
+<li>Very small memory usage</li>
+<li>Fast to create</li>
+<li>Can create thousands or millions</li>
+
+</ul>
+
+<pre>
+
+Main()
+
+|
+|---- Worker 1
+|
+|---- Worker 2
+|
+|---- Worker 3
+
+</pre>
+
+</section>
+
+<section id="scheduler">
+
+<h2>4. Go Scheduler</h2>
+
+<p>
+
+The Go Scheduler decides which Goroutine runs and when.
+
+</p>
+
+<div class="card">
+
+Think of it like a Traffic Police Officer controlling vehicles at an intersection.
+
+</div>
+
+</section>
+
+<section id="channels">
+
+<h2>5. Channels</h2>
+
+<p>
+
+Channels allow Goroutines to communicate safely.
+
+</p>
+
+<pre>
+
+Worker A
+    |
+    V
+
+==========
+ Channel
+==========
+
+    |
+    V
+
+Worker B
+
+</pre>
+
+<div class="quote">
+
+Don't communicate by sharing memory; share memory by communicating.
+
+</div>
+
+</section>
+
+<section id="blocking">
+
+<h2>6. Blocking</h2>
+
+<h3>Sending</h3>
+
+<p>
+
+If nobody is receiving data, the sender waits.
+
+</p>
+
+<h3>Receiving</h3>
+
+<p>
+
+If nobody sends data, the receiver waits.
+
+</p>
+
+</section>
+
+<section id="buffer">
+
+<h2>7. Buffered Channels</h2>
+
+<p>
+
+Buffered Channels can temporarily store multiple values.
+
+</p>
+
+<pre>
+
+Buffer Size = 3
+
++----+----+----+
+
+| 10 | 20 | 30 |
+
++----+----+----+
+
+</pre>
+
+</section>
+
+<section id="sync">
+
+<h2>8. Synchronization</h2>
+
+<p>
+
+Sometimes the Main Goroutine must wait until all worker Goroutines finish.
+
+</p>
+
+<pre>
+
+Main
+
+ |
+
+Creates Workers
+
+ |
+
+Wait
+
+ |
+
+Exit
+
+</pre>
+
+</section>
+
+<section id="race">
+
+<h2>9. Race Condition</h2>
+
+<p>
+
+Occurs when multiple Goroutines modify shared data simultaneously.
+
+</p>
+
+<pre>
+
+Counter = 0
+
+Worker A -> Reads 0
+
+Worker B -> Reads 0
+
+Worker A -> Writes 1
+
+Worker B -> Writes 1
+
+Expected = 2
+
+Actual = 1
+
+</pre>
+
+</section>
+
+<section id="mutex">
+
+<h2>10. Mutex</h2>
+
+<p>
+
+Mutex allows only one Goroutine to access shared data at a time.
+
+</p>
+
+<div class="card">
+
+Think of a room with only one key.
+
+Only one person can enter at a time.
+
+</div>
+
+</section>
+
+<section id="deadlock">
+
+<h2>11. Deadlock</h2>
+
+<p>
+
+Deadlock happens when Goroutines wait for each other forever.
+
+</p>
+
+<pre>
+
+A Waiting For B
+
+^
+
+|
+
+|
+
+v
+
+B Waiting For A
+
+</pre>
+
+</section>
+
+<section id="patterns">
+
+<h2>12. Common Concurrency Patterns</h2>
+
+<h3>Worker Pattern</h3>
+
+<pre>
+
+Jobs
+
+ |
+
+Channel
+
+ |
+
++---+---+---+
+
+|W1 |W2 |W3 |
+
++---+---+---+
+
+ |
+
+Results
+
+</pre>
+
+<h3>Producer Consumer</h3>
+
+<pre>
+
+Producer
+
+ |
+
+Channel
+
+ |
+
+Consumer
+
+</pre>
+
+</section>
+
+<section id="summary">
+
+<h2>Quick Revision</h2>
+
+<ul class="summary">
+
+<li>✔ Concurrency = Managing Multiple Tasks</li>
+
+<li>✔ Parallelism = Running Multiple Tasks Together</li>
+
+<li>✔ Goroutine = Lightweight Thread</li>
+
+<li>✔ Scheduler = Manages Goroutines</li>
+
+<li>✔ Channels = Communication Between Goroutines</li>
+
+<li>✔ Blocking = Wait Until Data Available</li>
+
+<li>✔ Buffered Channels = Store Multiple Values</li>
+
+<li>✔ Synchronization = Wait For All Tasks</li>
+
+<li>✔ Race Condition = Unsafe Shared Data Access</li>
+
+<li>✔ Mutex = One Goroutine At A Time</li>
+
+<li>✔ Deadlock = Everyone Waiting Forever</li>
+
+<li>✔ Worker & Producer-Consumer = Common Patterns</li>
+
+</ul>
+
+</section>
+
+</div>
+
+<footer>
+
+<h3>GoLang Concurrency - Fresher Level Notes</h3>
+
+<p>
+
+Designed for Beginners • HTML Only • Responsive • Easy to Study
+
+</p>
+
+</footer>
+
+</body>
+</html>
