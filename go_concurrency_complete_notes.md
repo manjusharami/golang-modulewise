@@ -214,6 +214,16 @@ Variants:
 ## 6. Common Concurrency Patterns
 
 ### 6.1 Worker Pool
+
+Producer puts jobs into a jobs channel
+
+Workers read jobs from the channel
+
+Each worker processes a job
+
+Results go into a results channel
+
+Main goroutine collects results
 ```go
 func worker(id int, jobs <-chan int, results chan<- int) {
     for j := range jobs {
